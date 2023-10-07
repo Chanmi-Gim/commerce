@@ -20,11 +20,11 @@ export class UserController {
   async updateUserName(@Param('id', ParseIntPipe) userId: number) {}
 
   @Delete(':id')
-  async deleteUSer(@Param('id', ParseIntPipe) userId: number) {}
+  async deleteUser(@Param('id', ParseIntPipe) userId: number) {}
 
   @Post()
   async create(@Body() createUserDto: CreateUserDto) {
-    console.log(createUserDto, 'createUserDto');
+    return await this.userSerivce.create(createUserDto);
   }
 
   @Get()

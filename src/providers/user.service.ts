@@ -1,4 +1,5 @@
 import { BadRequestException, Injectable } from '@nestjs/common';
+import { CreateUserDto } from 'src/models/dtos/create-user.dto';
 import { UserRepository } from 'src/models/repositories/user.repository';
 import { UserEntity } from 'src/models/tables/user.entity';
 
@@ -26,5 +27,9 @@ export class UserService {
   async findAll(): Promise<UserEntity[]> {
     const users = await this.userRepository.find();
     return users;
+  }
+
+  async create(createUserDto: CreateUserDto): Promise<UserEntity> {
+    return await this.userRepository.save(createUserDto);
   }
 }
