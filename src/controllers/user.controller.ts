@@ -9,6 +9,7 @@ import {
   Put,
 } from '@nestjs/common';
 import { CreateUserDto } from 'src/models/dtos/create-user.dto';
+import { DeleteUserDto } from 'src/models/dtos/delete-user.dto';
 import { UserEntity } from 'src/models/tables/user.entity';
 import { UserService } from 'src/providers/user.service';
 
@@ -16,11 +17,18 @@ import { UserService } from 'src/providers/user.service';
 export class UserController {
   constructor(private readonly userSerivce: UserService) {}
 
-  @Put(':id')
-  async updateUserName(@Param('id', ParseIntPipe) userId: number) {}
+  @Put(':id/:name')
+  async updateUserName(
+    @Param('id') userId: number,
+    @Param('name') name: string,
+  ) {
+    return await this.userSerivce.updateUserName(userId, name);
+  }
 
-  @Delete(':id')
-  async deleteUser(@Param('id', ParseIntPipe) userId: number) {}
+  @Delete()
+  async deleteUser(@Body() deleteUserDto: DeleteUserDto) {
+    return await this.userSerivce.delete(deleteUserDto);
+  }
 
   @Post()
   async create(@Body() createUserDto: CreateUserDto) {

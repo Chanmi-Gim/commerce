@@ -1,5 +1,6 @@
 import { BadRequestException, Injectable } from '@nestjs/common';
 import { CreateUserDto } from 'src/models/dtos/create-user.dto';
+import { DeleteUserDto } from 'src/models/dtos/delete-user.dto';
 import { UserRepository } from 'src/models/repositories/user.repository';
 import { UserEntity } from 'src/models/tables/user.entity';
 
@@ -31,5 +32,14 @@ export class UserService {
 
   async create(createUserDto: CreateUserDto): Promise<UserEntity> {
     return await this.userRepository.save(createUserDto);
+  }
+
+  async delete(deleteUserDto: DeleteUserDto): Promise<boolean> {
+    try {
+      await this.userRepository.delete({ nickname: deleteUserDto.nickname });
+      return true;
+    } catch (err) {
+      return false;
+    }
   }
 }
