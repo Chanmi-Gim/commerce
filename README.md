@@ -42,3 +42,14 @@ npm i cross-env # 운영체제 상관없이 NODE_ENV 사용
 git commit --amend
 
 ```
+
+## typescript
+
+```bash
+{
+  "strictNullChecks": true,
+  "strict": true,
+}
+```
+
+- 타입스크립트 config에서 strict를 켜고 끌 때의 차이는 무엇인가?

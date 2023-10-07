@@ -1,4 +1,5 @@
 import {
+  Body,
   Controller,
   Delete,
   Get,
@@ -20,9 +21,12 @@ export class UserController {
   @Delete(':id')
   async deleteUSer(@Param('id', ParseIntPipe) userId: number) {}
 
-  @Get()
-  async getAll() {}
-
   @Post()
-  async create() {}
+  async create(@Body() createUserDto) {}
+
+  @Get()
+  async getAll() {
+    const users = await this.userSerivce.findAll();
+    return users;
+  }
 }
