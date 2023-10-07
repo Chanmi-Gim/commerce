@@ -20,7 +20,7 @@ docker compose --help
 
 - 컨테이너는 무엇인가?
 
-### library
+## library
 
 ```bash
 npm i typeorm mysql2 @nestjs/typeorm # DB 연동을 위한 라이브러리
@@ -28,4 +28,15 @@ npm i @nestjs/config # nestjs 용 .env 해독
 npm i cross-env # 운영체제 상관없이 NODE_ENV 사용
 ```
 
-- ORM 이란 무엇인가?
+- ORM (Object Relation Mapping) 이란 무엇인가?
+- soft-delete 란?
+
+## git
+
+```bash
+# 방금 커밋한 것을 수정하는 경우에 사용한다.
+# 단, 커밋하고 나서 시간이 오래 지난 후에 다시 커밋해선 안 된다.
+# 이 경우, 새로 add한 것들까지 다 포함되서 다시 커밋되기 때문.
+git commit --amend
+
+```
