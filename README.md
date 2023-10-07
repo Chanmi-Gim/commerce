@@ -17,3 +17,13 @@ docker compose --help
 
 `docker compose up -d`는 현재 폴더의 `docker-compose.yml`을 실행시킨다.
 이 Repository 폴더의 yml 파일은 mysql 컨테이너에 관한 정보를 담고있다.
+
+- 컨테이너는 무엇인가?
+
+### library
+
+```bash
+npm i typeorm mysql2 --save
+```
+
+- ORM 이란 무엇인가?
