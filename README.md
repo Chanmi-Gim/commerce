@@ -53,3 +53,8 @@ git commit --amend
 ```
 
 - 타입스크립트 config에서 strict를 켜고 끌 때의 차이는 무엇인가?
+
+## DTO (Data Transfer Object)
+
+- 데이터 전달 객체
+- `동사 - 리소스 .dto.ts` 형식으로 작성한다.

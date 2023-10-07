@@ -8,6 +8,7 @@ import {
   Post,
   Put,
 } from '@nestjs/common';
+import { CreateUserDto } from 'src/models/dtos/create-user.dto';
 import { UserEntity } from 'src/models/tables/user.entity';
 import { UserService } from 'src/providers/user.service';
 
@@ -22,7 +23,9 @@ export class UserController {
   async deleteUSer(@Param('id', ParseIntPipe) userId: number) {}
 
   @Post()
-  async create(@Body() createUserDto) {}
+  async create(@Body() createUserDto: CreateUserDto) {
+    console.log(createUserDto, 'createUserDto');
+  }
 
   @Get()
   async getAll() {
