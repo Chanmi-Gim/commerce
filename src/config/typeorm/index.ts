@@ -20,10 +20,11 @@ export const TypeOrmModuleOptions = {
       ],
       synchronize: NODE_ENV === 'LOCAL' ? true : false,
       ...(NODE_ENV === 'DEVELOPMENT' || NODE_ENV === 'LOCAL'
-        ? { retryAttempts: 10, logging: true }
+        ? { retryAttempts: 1, logging: true }
         : { logging: false }),
     };
 
+    console.log(option);
     return option;
   },
 };

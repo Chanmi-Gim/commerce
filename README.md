@@ -23,7 +23,9 @@ docker compose --help
 ### library
 
 ```bash
-npm i typeorm mysql2 --save
+npm i typeorm mysql2 @nestjs/typeorm # DB 연동을 위한 라이브러리
+npm i @nestjs/config # nestjs 용 .env 해독
+npm i cross-env # 운영체제 상관없이 NODE_ENV 사용
 ```
 
 - ORM 이란 무엇인가?
