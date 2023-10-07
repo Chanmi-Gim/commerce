@@ -23,8 +23,6 @@ export const TypeOrmModuleOptions = {
         ? { retryAttempts: 1, logging: true }
         : { logging: false }),
     };
-
-    console.log(option);
     return option;
   },
 };
