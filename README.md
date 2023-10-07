@@ -20,7 +20,7 @@ docker compose --help
 
 - 컨테이너는 무엇인가?
 
-### library
+## library
 
 ```bash
 npm i typeorm mysql2 @nestjs/typeorm # DB 연동을 위한 라이브러리
@@ -28,4 +28,33 @@ npm i @nestjs/config # nestjs 용 .env 해독
 npm i cross-env # 운영체제 상관없이 NODE_ENV 사용
 ```
 
-- ORM 이란 무엇인가?
+- ORM (Object Relation Mapping) 이란 무엇인가?
+- soft-delete 란?
+- ORM typeorm configuration을 보면 host가 있는데, localhost와 127.0.0.1의 차이는?
+  - TCP와 IP의 차이인데, 뭐가 무엇인지 찾아볼 것 ( MySQL에서는 중요하다. )
+
+## git
+
+```bash
+# 방금 커밋한 것을 수정하는 경우에 사용한다.
+# 단, 커밋하고 나서 시간이 오래 지난 후에 다시 커밋해선 안 된다.
+# 이 경우, 새로 add한 것들까지 다 포함되서 다시 커밋되기 때문.
+git commit --amend
+
+```
+
+## typescript
+
+```bash
+{
+  "strictNullChecks": true,
+  "strict": true,
+}
+```
+
+- 타입스크립트 config에서 strict를 켜고 끌 때의 차이는 무엇인가?
+
+## DTO (Data Transfer Object)
+
+- 데이터 전달 객체
+- `동사 - 리소스 .dto.ts` 형식으로 작성한다.
