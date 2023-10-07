@@ -30,6 +30,8 @@ npm i cross-env # 운영체제 상관없이 NODE_ENV 사용
 
 - ORM (Object Relation Mapping) 이란 무엇인가?
 - soft-delete 란?
+- ORM typeorm configuration을 보면 host가 있는데, localhost와 127.0.0.1의 차이는?
+  - TCP와 IP의 차이인데, 뭐가 무엇인지 찾아볼 것 ( MySQL에서는 중요하다. )
 
 ## git
 
