@@ -10,7 +10,7 @@ services:
     container_name: commerce-mysql
     # 접근 포트 설정 (컨테이너 외부:컨테이너 내부)
     ports:
-      - '3307:3307'
+      - '3306:3306'
     # 환경 변수 설정
     environment:
       MYSQL_ROOT_PASSWORD: password
