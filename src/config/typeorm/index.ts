@@ -18,8 +18,11 @@ export const TypeOrmModuleOptions = {
         path.join(__dirname, '../../models/tables/*.ts'),
         path.join(__dirname, '../../models/tables/*.js'),
       ],
-      synchronize: NODE_ENV === 'LOCAL' ? true : false,
-      ...(NODE_ENV === 'DEVELOPMENT' || NODE_ENV === 'LOCAL'
+      /**
+       * Connection 시작 시, DB Table을 코드와 동기화할지 여부를 의미한다.
+       */
+      synchronize: NODE_ENV === 'DEVELOPMENT' ? true : false,
+      ...(NODE_ENV === 'DEVELOPMENT'
         ? { retryAttempts: 1, logging: true }
         : { logging: false }),
     };
