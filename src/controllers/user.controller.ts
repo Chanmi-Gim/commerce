@@ -4,20 +4,22 @@ import {
   Delete,
   Get,
   Param,
-  ParseIntPipe,
   Post,
   Put,
 } from '@nestjs/common';
-import { create } from 'domain';
 import { CreateUserDto } from 'src/models/dtos/create-user.dto';
 import { DeleteUserDto } from 'src/models/dtos/delete-user.dto';
 import { UpdateUserDto } from 'src/models/dtos/update-user.dto';
-import { UserEntity } from 'src/models/tables/user.entity';
 import { UserService } from 'src/providers/user.service';
 
 @Controller('users')
 export class UserController {
   constructor(private readonly userSerivce: UserService) {}
+
+  @Get(':id')
+  async getUser(@Param('id') userId: number) {
+    return await this.userSerivce.findOneByUserId(userId);
+  }
 
   @Put()
   async updateUserName(@Body() updateUserDto: UpdateUserDto) {
@@ -37,10 +39,5 @@ export class UserController {
   async getAll() {
     const users = await this.userSerivce.findAll();
     return users;
-  }
-
-  @Get(':id')
-  async getUser(@Param('id') userId: number) {
-    return await this.userSerivce.findOneByUserId(userId);
   }
 }
