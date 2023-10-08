@@ -4,6 +4,7 @@ import { DeleteUserDto } from 'src/models/dtos/delete-user.dto';
 import { UpdateUserDto } from 'src/models/dtos/update-user.dto';
 import { UserRepository } from 'src/models/repositories/user.repository';
 import { UserEntity } from 'src/models/tables/user.entity';
+import { ILike, IsNull } from 'typeorm';
 
 @Injectable()
 export class UserService {
@@ -41,8 +42,15 @@ export class UserService {
     return user;
   }
 
-  async findAll(): Promise<UserEntity[]> {
-    const users = await this.userRepository.find();
+  async findAll(search?: string, target?: string): Promise<UserEntity[]> {
+    const where = {};
+    if (target === 'name' && search) {
+      where['name'] = search === 'null' ? IsNull() : search;
+    }
+
+    const users = await this.userRepository.find({
+      where,
+    });
     return users;
   }
 

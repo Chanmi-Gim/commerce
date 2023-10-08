@@ -16,6 +16,11 @@ import { UserService } from 'src/providers/user.service';
 export class UserController {
   constructor(private readonly userSerivce: UserService) {}
 
+  @Get('search')
+  async getAllUser({ search, target }: { search: string; target: string }) {
+    return await this.userSerivce.findAll(search, target);
+  }
+
   @Get(':id')
   async getUser(@Param('id') userId: number) {
     return await this.userSerivce.findOneByUserId(userId);
