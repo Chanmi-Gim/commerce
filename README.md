@@ -58,3 +58,47 @@ git commit --amend
 
 - 데이터 전달 객체
 - `동사 - 리소스 .dto.ts` 형식으로 작성한다.
+
+## Repository
+
+- 서비스에 있는 쿼리 중복을 최소화된다.
+- 쿼리를 수정할 때 전체 서비스에 일괄적으로 적용될 수 있기 때문에 생산성이 높다.
+
+```typescript
+class UserRepo {
+  findOneVaildUser() {
+    // 3개월 이내인 유저만 고려한다는 로직을 여기에다가 추가하면,
+    // 전체 서비스가 수정된다!
+  }
+}
+
+function getMyPage() {
+  try{
+    const user = new UserRepo.findOneValidUser();
+    2. 있으면 리턴한다.
+    3. 없으면 에러를 던진다.
+  } catch(err) {
+
+  }
+}
+
+function getMyPoint() {
+  try{
+    const user = new UserRepo.findOneValidUser();
+    2. 유저가 있으면 그 유저의 포인트를 본다. // DB 접근 필요
+    3. 유저가 없으면 에러를 던진다.
+  } catch(err) {
+
+  }
+}
+
+function updateMyNickname() {
+  try{
+    const user = new UserRepo.findOneValidUser();
+    2. 유저의 닉네임을 바꾼다. // DB 접근 필요
+    3. 유저를 다시 조회해서 바뀐 닉네임의 유저를 리턴한다.
+  } catch(err) {
+
+  }
+}
+```
