@@ -102,3 +102,13 @@ function updateMyNickname() {
   }
 }
 ```
+
+## Jest
+
+- 테스트 코드를 이용해서 Postman으로 일일히 API를 호출하지 않아도 되게 한다.
+- 테스트의 옵션들
+  - --watch : 테스트 코드에서 저장이 새로 이루어질 때마다 테스트 재실행
+  - --detectOpenHandles : 테스트 후 열려있는 소켓이 있을 경우 강제 종료
+  - --runInBand : 테스트를 병렬적으로 실행하지 않고 순차적으로 실행하게 한다. (안정적)
+- beforeAll, beforeEach, afterAll, afterEach
+- it.only, it.skip, describe.only, describe.skip

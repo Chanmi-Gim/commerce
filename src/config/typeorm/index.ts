@@ -21,7 +21,7 @@ export const TypeOrmModuleOptions = {
       /**
        * Connection 시작 시, DB Table을 코드와 동기화할지 여부를 의미한다.
        */
-      synchronize: NODE_ENV === 'DEVELOPMENT' ? true : false,
+      synchronize: Boolean(configService.get(`${NODE_ENV}_DB_SYNC`)),
       ...(NODE_ENV === 'DEVELOPMENT'
         ? { retryAttempts: 1, logging: true }
         : { logging: false }),
