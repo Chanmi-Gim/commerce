@@ -26,9 +26,16 @@ export class UserController {
     return await this.userSerivce.findOneByUserId(userId);
   }
 
-  @Put()
-  async updateUserName(@Body() updateUserDto: UpdateUserDto) {
-    return await this.userSerivce.updateUserNickname(updateUserDto);
+  @Get()
+  async getAll() {
+    const users = await this.userSerivce.findAll();
+    return users;
+  }
+
+  @Post()
+  async create(@Body() createUserDto: CreateUserDto) {
+    console.log(createUserDto, 'createUserDto');
+    return await this.userSerivce.create(createUserDto);
   }
 
   @Delete()
@@ -36,13 +43,8 @@ export class UserController {
     return await this.userSerivce.delete(deleteUserDto);
   }
 
-  @Post()
-  async create(@Body() createUserDto: CreateUserDto) {
-    return await this.userSerivce.create(createUserDto);
-  }
-  @Get()
-  async getAll() {
-    const users = await this.userSerivce.findAll();
-    return users;
+  @Put()
+  async updateUserName(@Body() updateUserDto: UpdateUserDto) {
+    return await this.userSerivce.updateUserNickname(updateUserDto);
   }
 }
